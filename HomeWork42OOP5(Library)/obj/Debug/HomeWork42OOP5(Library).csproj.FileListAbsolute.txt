@@ -1,0 +1,8 @@
+E:\CSlight\HomeWork42OOP5(Library)\HomeWork42OOP5(Library)\bin\Debug\HomeWork42OOP5(Library).exe.config
+E:\CSlight\HomeWork42OOP5(Library)\HomeWork42OOP5(Library)\bin\Debug\HomeWork42OOP5(Library).exe
+E:\CSlight\HomeWork42OOP5(Library)\HomeWork42OOP5(Library)\bin\Debug\HomeWork42OOP5(Library).pdb
+E:\CSlight\HomeWork42OOP5(Library)\HomeWork42OOP5(Library)\obj\Debug\HomeWork42OOP5(Library).csproj.AssemblyReference.cache
+E:\CSlight\HomeWork42OOP5(Library)\HomeWork42OOP5(Library)\obj\Debug\HomeWork42OOP5(Library).csproj.SuggestedBindingRedirects.cache
+E:\CSlight\HomeWork42OOP5(Library)\HomeWork42OOP5(Library)\obj\Debug\HomeWork42OOP5(Library).csproj.CoreCompileInputs.cache
+E:\CSlight\HomeWork42OOP5(Library)\HomeWork42OOP5(Library)\obj\Debug\HomeWork42OOP5(Library).exe
+E:\CSlight\HomeWork42OOP5(Library)\HomeWork42OOP5(Library)\obj\Debug\HomeWork42OOP5(Library).pdb
