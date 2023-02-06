@@ -209,7 +209,7 @@ namespace HomeWork42OOP5_Library_
 
             for (int i = 0; i < _books.Count; i++)
             {
-                if (userInput.ToLower() == _books[i].Title.ToLower() || _books[i].Title.Contains(userInput))
+                if (userInput.ToLower() == _books[i].Title.ToLower() || _books[i].Title.ToLower().Contains(userInput))
                 {
                     _books[i].ShowInfo();
                     isFined = true;
@@ -238,7 +238,7 @@ namespace HomeWork42OOP5_Library_
 
             for (int i = 0; i < _books.Count; i++)
             {
-                if (userInput.ToLower() == _books[i].Author.ToLower() || _books[i].Author.Contains(userInput))
+                if (userInput.ToLower() == _books[i].Author.ToLower() || _books[i].Author.ToLower().Contains(userInput))
                 {
                     _books[i].ShowInfo();
                     isFined = true;
