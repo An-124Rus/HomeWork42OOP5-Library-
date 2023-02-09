@@ -32,46 +32,49 @@ namespace HomeWork42OOP5_Library_
         }
     }
 
+    static class MenuKey
+    {
+        public const string AddBookCommand = "1";
+        public const string RemoveBookCommand = "2";
+        public const string ShowAllBooksCommand = "3";
+        public const string ShowBooksCommand = "4";
+        public const string ExitCommand = "5";
+    }
+
     class Storage
     {
         private List<Book> _books = new List<Book>();
 
         public void Work()
         {
-            const string AddBookCommand = "1";
-            const string RemoveBookCommand = "2";
-            const string ShowAllBooksCommand = "3";
-            const string ShowBooksCommand = "4";
-            const string ExitCommand = "5";
-
             bool isOpen = true;
 
             while (isOpen)
             {
-                ShowMenu(AddBookCommand, RemoveBookCommand, ShowAllBooksCommand, ShowBooksCommand, ExitCommand);
+                ShowMenu();
 
                 Console.Write("Ваш выбор: ");
                 string userInput = Console.ReadLine();
 
                 switch (userInput)
                 {
-                    case AddBookCommand:
+                    case MenuKey.AddBookCommand:
                         AddBook();
                         break;
 
-                    case RemoveBookCommand:
+                    case MenuKey.RemoveBookCommand:
                         RemoveBook();
                         break;
 
-                    case ShowAllBooksCommand:
+                    case MenuKey.ShowAllBooksCommand:
                         ShowAllBooks();
                         break;
 
-                    case ShowBooksCommand:
+                    case MenuKey.ShowBooksCommand:
                         ShowBooks();
                         break;
 
-                    case ExitCommand:
+                    case MenuKey.ExitCommand:
                         isOpen = false;
                         break;
 
@@ -81,16 +84,16 @@ namespace HomeWork42OOP5_Library_
             }
         }
 
-        private void ShowMenu(string AddBookCommand, string RemoveBookCommand, string ShowAllBooksCommand, string ShowBooksCommand, string ExitCommand)
+        private void ShowMenu()
         {
             Console.Clear();
             Console.WriteLine($"     Добро пожаловать в хранилище книг");
             Console.WriteLine($"{new string('_', 50)}\n");
-            Console.WriteLine($"Для добавления новой книги нажмите --------- {AddBookCommand}\n");
-            Console.WriteLine($"Для удаления книги нажмите ----------------- {RemoveBookCommand}\n");
-            Console.WriteLine($"Показать все книги нажмите ----------------- {ShowAllBooksCommand}\n");
-            Console.WriteLine($"Показать книги по... нажмите --------------- {ShowBooksCommand}\n");
-            Console.WriteLine($"Выйти из хранилища нажмите ----------------- {ExitCommand}\n");
+            Console.WriteLine($"Для добавления новой книги нажмите --------- {MenuKey.AddBookCommand}\n");
+            Console.WriteLine($"Для удаления книги нажмите ----------------- {MenuKey.RemoveBookCommand}\n");
+            Console.WriteLine($"Показать все книги нажмите ----------------- {MenuKey.ShowAllBooksCommand}\n");
+            Console.WriteLine($"Показать книги по... нажмите --------------- {MenuKey.ShowBooksCommand}\n");
+            Console.WriteLine($"Выйти из хранилища нажмите ----------------- {MenuKey.ExitCommand}\n");
             Console.WriteLine($"{new string('_', 50)}\n");
         }
 
@@ -106,6 +109,9 @@ namespace HomeWork42OOP5_Library_
             string author = Console.ReadLine();
 
             int year = ParseNumber("\nВведите год издания: ");
+
+            if (year < 0)
+                year = DateTime.Now.Year;
 
             _books.Add(new Book(title, author, year));
 
@@ -209,7 +215,7 @@ namespace HomeWork42OOP5_Library_
 
             for (int i = 0; i < _books.Count; i++)
             {
-                if (userInput.ToLower() == _books[i].Title.ToLower() || _books[i].Title.ToLower().Contains(userInput))
+                if (_books[i].Title.ToLower().Contains(userInput))
                 {
                     _books[i].ShowInfo();
                     isFined = true;
@@ -238,7 +244,7 @@ namespace HomeWork42OOP5_Library_
 
             for (int i = 0; i < _books.Count; i++)
             {
-                if (userInput.ToLower() == _books[i].Author.ToLower() || _books[i].Author.ToLower().Contains(userInput))
+                if (_books[i].Author.ToLower().Contains(userInput))
                 {
                     _books[i].ShowInfo();
                     isFined = true;
@@ -283,6 +289,7 @@ namespace HomeWork42OOP5_Library_
         private int ParseNumber(string value)
         {
             int number;
+            int currentYear;
 
             Console.Write(value);
             string userInput = Console.ReadLine();
